@@ -64,6 +64,27 @@ const Category = () => {
           </SwiperSlide>
         </Swiper>
       </div>
+      <div>
+        <div
+          className="hero  mt-12"
+          style={{
+            backgroundImage:
+              "url(https://i.postimg.cc/sgjkfwBQ/chef-service.jpg)",
+          }}
+        >
+          <div className="hero-overlay bg-opacity-45 "></div>
+          <div className="hero-content min-h-screen text-center">
+            <div className=" bg-slate-100 h-80 pt-28 p-8">
+              <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+              <p className="mb-5">
+                Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                assumenda excepturi exercitationem quasi. In deleniti eaque aut
+                repudiandae et a id nisi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
