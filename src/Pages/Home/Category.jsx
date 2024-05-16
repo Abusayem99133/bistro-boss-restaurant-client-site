@@ -66,7 +66,7 @@ const Category = () => {
       </div>
       <div>
         <div
-          className="hero  mt-12"
+          className="hero  mt-12 bg-fixed"
           style={{
             backgroundImage:
               "url(https://i.postimg.cc/sgjkfwBQ/chef-service.jpg)",
