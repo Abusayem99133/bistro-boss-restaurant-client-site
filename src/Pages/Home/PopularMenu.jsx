@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../Component/SectionTitle";
 import MenuItems from "../../Shareds/MenuItems";
+import { Link } from "react-router-dom";
 
 const PopularMenu = () => {
   const [menu, setMenu] = useState([]);
@@ -25,6 +26,20 @@ const PopularMenu = () => {
         {menu?.map((item) => (
           <MenuItems key={item?._id} item={item}></MenuItems>
         ))}
+      </div>
+      <div className=" mt-4  text-center">
+        <Link>
+          <button className="uppercase border-b-4 border-black btn btn-outline">
+            View full menu
+          </button>
+        </Link>
+      </div>
+      <div className="bg-black max-h-screen mt-12">
+        <div>
+          <h3 className="font-bold text-3xl text-white py-12 text-center">
+            Call Us: +88 0192345678910
+          </h3>
+        </div>
       </div>
     </section>
   );
