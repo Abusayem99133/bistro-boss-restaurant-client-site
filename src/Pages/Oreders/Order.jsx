@@ -4,6 +4,8 @@ import Cover from "../../Shareds/Covers/Cover";
 import orderCover from "../../assets/shop/banner2.jpg";
 import { useState } from "react";
 import USeMenu from "../../Hooks/USeMenu";
+import FoodCard from "../../Shareds/Foods/FoodCard";
+import OrdersTab from "./OrdersTab";
 const Order = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [menu] = USeMenu();
@@ -28,8 +30,21 @@ const Order = () => {
             <Tab>DESSERTS</Tab>
             <Tab>DRINKS</Tab>
           </TabList>
-          <TabPanel></TabPanel>
-          <TabPanel></TabPanel>
+          <TabPanel>
+            <OrdersTab items={salad}></OrdersTab>
+          </TabPanel>
+          <TabPanel>
+            <OrdersTab items={pizza}></OrdersTab>
+          </TabPanel>
+          <TabPanel>
+            <OrdersTab items={soup}></OrdersTab>
+          </TabPanel>
+          <TabPanel>
+            <OrdersTab items={desserts}></OrdersTab>
+          </TabPanel>
+          <TabPanel>
+            <OrdersTab items={offered}></OrdersTab>
+          </TabPanel>
         </Tabs>
       </div>
     </div>
