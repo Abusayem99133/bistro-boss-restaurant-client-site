@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,8 +11,15 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { createUser } = useContext(AuthContext);
+  const onSubmit = (data) => {
+    console.log(data);
 
-  const onSubmit = (data) => console.log(data);
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.useForm;
+      console.log(loggedUser);
+    });
+  };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
