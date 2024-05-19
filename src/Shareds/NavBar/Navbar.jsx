@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -29,6 +30,7 @@ const Navbar = () => {
 
       {user ? (
         <>
+          <span>{user?.displayName}</span>
           <button onClick={handleLogOut} className="">
             {" "}
             LogOut
