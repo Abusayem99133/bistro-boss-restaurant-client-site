@@ -4,18 +4,26 @@ import Cover from "../../Shareds/Covers/Cover";
 import orderCover from "../../assets/shop/banner2.jpg";
 import { useState } from "react";
 import USeMenu from "../../Hooks/USeMenu";
-import FoodCard from "../../Shareds/Foods/FoodCard";
+
 import OrdersTab from "./OrdersTab";
+import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const Order = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const categories = ["salad", "pizza", "soup", "dessert", "drinks"];
+  const { category } = useParams();
+  const initialIndex = categories.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(initialIndex);
   const [menu] = USeMenu();
-  const offered = menu.filter((item) => item.category === "offered");
+  const drinks = menu.filter((item) => item.category === "drinks");
   const desserts = menu.filter((item) => item.category === "dessert");
   const pizza = menu.filter((item) => item.category === "pizza");
   const salad = menu.filter((item) => item.category === "salad");
   const soup = menu.filter((item) => item.category === "soup");
   return (
     <div>
+      <Helmet>
+        <title>Bistro-Boss | OurShop</title>
+      </Helmet>
       <div>
         <Cover
           img={orderCover}
@@ -43,7 +51,7 @@ const Order = () => {
             <OrdersTab items={desserts}></OrdersTab>
           </TabPanel>
           <TabPanel>
-            <OrdersTab items={offered}></OrdersTab>
+            <OrdersTab items={drinks}></OrdersTab>
           </TabPanel>
         </Tabs>
       </div>
