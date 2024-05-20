@@ -15,6 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  console.log("use to the location ", location.state);
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -29,7 +30,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         Swal.fire({
-          title: "Good job!",
+          title: "Login Success.",
           text: "You clicked the button!",
           icon: "success",
         });
@@ -106,12 +107,11 @@ const Login = () => {
                   placeholder="type the captcha  above"
                   name="captcha"
                   className="input input-bordered"
-                  required
                 />
               </div>
               <div className="form-control mt-6">
                 <input
-                  disabled={disabled}
+                  disabled={false}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"

@@ -30,7 +30,7 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/">
-          <button className="">
+          <button className="btn md:-mt-2">
             <GiShoppingCart />
             <div className="badge badge-secondary">+0</div>
           </button>
