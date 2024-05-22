@@ -1,15 +1,41 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { FaTrashAlt, FaUsers } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: users = {} } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
+  const handleDeleteUser = (user) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/users/${user?._id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
   return (
     <div>
       <div className="flex justify-evenly">
@@ -23,8 +49,9 @@ const AllUsers = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -32,9 +59,25 @@ const AllUsers = () => {
               <tr key={user?._id}>
                 <th>{index + 1}</th>
 
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
+                <td>{user?.name}</td>
+                <td>{user?.email}</td>
+                <td>
+                  {" "}
+                  <button
+                    onClick={() => handleDeleteUser(user)}
+                    className="btn btn-ghost bg-orange-400 "
+                  >
+                    <FaUsers className="text-white text-2xl" />
+                  </button>
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleDeleteUser(user)}
+                    className="btn btn-ghost bg-red-600"
+                  >
+                    <FaTrashAlt className="text-white " />
+                  </button>
+                </td>
               </tr>
             ))}
             {/* row 1 */}
