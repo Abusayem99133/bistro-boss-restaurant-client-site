@@ -9,6 +9,7 @@ import slide3 from "../../assets/home/slide3.jpg";
 import slide4 from "../../assets/home/slide4.jpg";
 import slide5 from "../../assets/home/slide5.jpg";
 import SectionTitle from "../../Component/SectionTitle";
+import chef from "../../assets/chef-service.jpg";
 const Category = () => {
   return (
     <section>
@@ -68,8 +69,7 @@ const Category = () => {
         <div
           className="hero  mt-12 bg-fixed"
           style={{
-            backgroundImage:
-              "url(https://i.postimg.cc/sgjkfwBQ/chef-service.jpg)",
+            backgroundImage: `url(${chef})`,
           }}
         >
           <div className="hero-overlay bg-opacity-45 "></div>
