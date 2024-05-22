@@ -127,9 +127,9 @@ const Login = () => {
                 </Link>
               </small>
             </p>
-            <hr />
+
             <span className="text-center p-2">or SignIn</span>
-            <hr />
+
             <div className="text-center text-3xl p-2">
               <SocialLogin></SocialLogin>
             </div>

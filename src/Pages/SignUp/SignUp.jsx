@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import SocialLogin from "../../Component/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
@@ -158,7 +159,7 @@ const SignUp = () => {
                 />
               </div>
             </form>
-            <p>
+            <p className="p-4">
               <small>
                 Already registered?{" "}
                 <Link to="/login" className="btn-link">
@@ -166,6 +167,9 @@ const SignUp = () => {
                 </Link>
               </small>
             </p>
+            <div className="text-center text-3xl p-2">
+              <SocialLogin></SocialLogin>
+            </div>
           </div>
         </div>
       </div>
