@@ -12,10 +12,12 @@ import {
 } from "react-icons/fa";
 import { FaBookBookmark, FaShop } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
   // TODO: isAdmin value from the database
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
+  // const isAdmin = true;
   return (
     <div className="flex">
       {/* dashboard site bar */}
