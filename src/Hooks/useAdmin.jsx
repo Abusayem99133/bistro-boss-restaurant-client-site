@@ -12,6 +12,7 @@ const useAdmin = () => {
       // console.log(res.data);
       return res.data?.admin;
     },
+    enabled: !!localStorage.getItem("access-token"),
   });
   return [isAdmin, isAdminLoading];
 };

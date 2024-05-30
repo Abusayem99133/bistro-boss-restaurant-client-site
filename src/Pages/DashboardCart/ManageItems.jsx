@@ -11,7 +11,7 @@ const ManageItems = () => {
   const handleDeleteItem = (item) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      text: "Are you delete this item!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -26,7 +26,7 @@ const ManageItems = () => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: `${item?.name}has been deleted`,
+            title: `${item?.name} has been deleted`,
             showConfirmButton: false,
             timer: 1500,
           });
