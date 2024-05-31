@@ -73,7 +73,8 @@ const CheckOutFrom = () => {
           transactionId: paymentIntent.id,
           price: totalPrice,
           data: new Date(), // utc date convert. use moment js to
-          cartIds: cart?.map((item) => item?._id),
+          cartIds: cart?.map((item) => item?.menuId),
+          menuItemIds: cart?.map((item) => item?.menuId),
 
           status: "pending",
         };
